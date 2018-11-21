@@ -18,6 +18,14 @@
          accueilVue.afficher();
         }
 
+     else if(hash.match(/^#creer-partie/)) {
+
+          }
+
+     else if(hash.match(/^#rejoindre-partie/)) {
+
+          }
+
 
      }
 

@@ -26,6 +26,13 @@
 
           }
 
+     else if(hash.match(/^#afficher-regles/)) {
+         var reglesVue = new ReglesVue();
+         reglesVue.afficher();
+
+
+          }
+
 
      }
 

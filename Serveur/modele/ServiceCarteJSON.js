@@ -22,7 +22,7 @@ let ServiceCarteJSON = function(){
                 reponse.write(cartes);
             } else if(idCarte = requete.url.match(/\/carte\/([0-9]+)?/)[1]){
                 let carte = await carteDAO.recuperer(idCarte);
-                reponse.write(carte);
+                reponse.write(carte ? carte : '{}');
             } else {
                 reponse.statusCode = 404;
             }

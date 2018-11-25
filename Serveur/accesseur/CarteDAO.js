@@ -11,12 +11,12 @@ let CarteDAO = function () {
         try {
             baseDeDonnees = await pool.getConnection();
             resultat = await baseDeDonnees.query(Requetes.SQL_LISTER_CARTES);
+            return JSON.stringify(resultat);
         } catch (erreur) {
             throw erreur;
         } finally {
             if (baseDeDonnees)
                 baseDeDonnees.end();
-            return JSON.stringify(resultat);
         }
     }
 
@@ -27,12 +27,12 @@ let CarteDAO = function () {
         try {
             baseDeDonnees = await pool.getConnection();
             resultat = await baseDeDonnees.query(Requetes.SQL_RECUPERER_CARTE, [id]);
+            return JSON.stringify(resultat[0]);
         } catch (erreur) {
             throw erreur;
         } finally {
             if (baseDeDonnees)
                 baseDeDonnees.end();
-            return JSON.stringify(resultat[0]);
         }
     }
 }

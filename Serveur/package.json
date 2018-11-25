@@ -1,0 +1,14 @@
+{
+  "name": "wherewolf",
+  "version": "1.0.0",
+  "description": "Jeu mobile du celebre jeu de table Loup-garou.",
+  "main": "Serveur.js",
+  "scripts": {
+    "start": "node Serveur.js"
+  },
+  "author": "Michael Turcotte",
+  "license": "ISC",
+  "devDependencies": {
+    "mariadb": "^2.0.1-beta"
+  }
+}

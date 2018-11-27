@@ -14,7 +14,11 @@ var RejoindrePartieVue = (function () {
             evenement.preventDefault();
             var pseudonyme = document.getElementById("nom-joueur").value;
             var codePartie = document.getElementById("code-partie").value;
-            actionRejoindrePartie(pseudonyme, codePartie);
+            if (pseudonyme == "" || codePartie == "") {
+                window.alert("Merci de renseigner tous les champs");
+            } else {
+                actionRejoindrePartie(pseudonyme, codePartie);
+            }
         }
 
     };

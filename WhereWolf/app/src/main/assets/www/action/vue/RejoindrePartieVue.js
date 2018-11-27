@@ -12,8 +12,8 @@ var RejoindrePartieVue = (function () {
 
         var rejoindrePartie = function (evenement) {
             evenement.preventDefault();
-            var pseudonyme = document.getElementById("nom-joueur");
-            var codePartie = document.getElementById("code-partie");
+            var pseudonyme = document.getElementById("nom-joueur").value;
+            var codePartie = document.getElementById("code-partie").value;
             actionRejoindrePartie(pseudonyme, codePartie);
         }
 

@@ -12,8 +12,18 @@ var CreerPartieVue = (function () {
 
         var creerPartie = function (evenement) {
             evenement.preventDefault();
-            //Récupérer champs
-            actionCreerPartie();
+            var nombreLoups = null;
+            var nombreJoueurs = null;
+            var tempsDebat = document.getElementById("temps-debat").value;
+            if (document.getElementById("choisir-loup").checked) {
+                nombreLoups = document.getElementById("choix-nombre").value;
+            } else {
+                nombreJoueurs = document.getElementById("choix-nombre").value;
+            }
+            var couleurVillage = document.getElementById("couleur-village").value;
+            var datePartie = document.getElementById("date-partie").value;
+            var codePartie = document.getElementById("code-creation-partie").value;
+            actionCreerPartie(tempsDebat, nombreLoups, nombreJoueurs, couleurVillage, datePartie, codePartie);
         }
 
     };

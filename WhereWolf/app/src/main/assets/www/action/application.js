@@ -39,9 +39,9 @@
         //Connexion à la partie
     }
 
-    var actionCreerPartie = function () {
-        window.alert("Création partie");
+    var actionCreerPartie = function (tempsDebat, nombreLoups, nombreJoueurs, couleurVillage, datePartie, codePartie) {
         //Création de la partie
+        //ATTENTION ! Soit nombreLoups soit nombreJoueurs est nul, en fonction du choix du créateur de partie
     }
 
     initialiser();

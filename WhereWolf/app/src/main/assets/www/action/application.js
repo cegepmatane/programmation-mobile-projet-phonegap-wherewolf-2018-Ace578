@@ -2,9 +2,9 @@
 
     var instance = this;
 
-    var initialiser = function (){
-       window.addEventListener("hashchange", naviguer);
-       naviguer();
+    var initialiser = function () {
+        window.addEventListener("hashchange", naviguer);
+        naviguer();
     }
 
     var naviguer = function () {
@@ -18,7 +18,7 @@
 
         } else if (hash.match(/^#creer-partie/)) {
 
-            var creerPartieVue = new CreerPartieVue();
+            var creerPartieVue = new CreerPartieVue(actionCreerPartie);
             creerPartieVue.afficher();
 
         } else if (hash.match(/^#rejoindre-partie/)) {
@@ -37,6 +37,11 @@
 
     var actionRejoindrePartie = function (pseudonyme, code) {
         //Connexion à la partie
+    }
+
+    var actionCreerPartie = function () {
+        window.alert("Création partie");
+        //Création de la partie
     }
 
     initialiser();

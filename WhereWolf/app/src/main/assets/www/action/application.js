@@ -23,7 +23,7 @@
           }
 
      else if(hash.match(/^#rejoindre-partie/)) {
-         var rejoindrePartieVue = new RejoindrePartieVue();
+         var rejoindrePartieVue = new RejoindrePartieVue(actionRejoindrePartie);
          rejoindrePartieVue.afficher();
           }
 
@@ -35,8 +35,11 @@
           }
 
 
-     }
+    }
+    var actionRejoindrePartie = function (pseudonyme, code) {
+        //Connexion à la partie
+    }
 
-     initialiser();
+    initialiser();
 
 })();

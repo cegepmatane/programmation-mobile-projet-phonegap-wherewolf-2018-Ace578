@@ -23,7 +23,8 @@
           }
 
      else if(hash.match(/^#rejoindre-partie/)) {
-
+         var rejoindrePartieVue = new RejoindrePartieVue();
+         rejoindrePartieVue.afficher();
           }
 
      else if(hash.match(/^#afficher-regles/)) {

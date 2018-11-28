@@ -8,3 +8,6 @@
 .externalNativeBuild
 WhereWolf/.idea/*
 
+WhereWolf/.idea/caches/build_file_checksums.ser
+WhereWolf/.idea/gradle.xml
+WhereWolf/.idea/misc.xml

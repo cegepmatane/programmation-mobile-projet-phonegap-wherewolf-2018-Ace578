@@ -7,6 +7,33 @@
         img {
             width: 80%;
         }
+        .contenant-cartes
+        {
+            width:250px;
+            height:400px;
+            float:left;
+            margin:20px;
+            position:relative;
+        }
+        .carte-vue-joueur, .description-carte-vue-joueur
+        {
+            
+            position:absolute;
+            background: url(image/CarteJeu/VersoCarte.PNG);
+            width:250px;
+            height:400px;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibility: hidden;
+            
+            
+        }
+        .carte-vue-joueur
+        {
+            background: url(image/CarteJeu/Sorciere.PNG);                
+        }
+        
     </style>
 </head>
 <body>
@@ -100,21 +127,30 @@
         <div class="page-vue-joueur">
             <h1>Loup-Garou</h1>
     
-            <p id="titre-partie-vue-joueur"></p>
-            <p id="nom-village-vue-joueur"></p>
-            <p id="date-village-vue-joueur"></p>
-    
-            <img src="image/CarteJeu/Loup.PNG" id="carte-vue-joueur" ondblclick="retournerCarteVueJoueur()">
-    
-            <a href="#afficher-liste-joueurs-vue-joueur">Joueurs</a></br>
-            <a href="#afficher-regles-vue-joueur">Regles</a>               
+            <div class="contenant-titres">
+                <p id="titre-partie-vue-joueur"></p>
+                <p id="nom-village-vue-joueur"></p>
+                <p id="date-village-vue-joueur"></p>
             </div>
+    
+            <div class="contenant-cartes">
+                <div class="carte-vue-joueur"></div>
+                <div class="description-carte-vue-joueur"></div>
+            </div>
+            
+            <div class="contenant-boutons">
+                <a href="#afficher-liste-joueurs-vue-joueur">Joueurs</a></br>
+                <a href="#afficher-regles-vue-joueur">Regles</a>
+            </div>              
+        </div>
     </script>
 
+    
     
 
     <!-- <script type="text/javascript" charset="utf-8" src="lib/cordova.js"></script> -->
     <script type="text/javascript" charset="utf-8" src="lib/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script src="action/vue/ReglesVue.js"></script>
     <script src="action/vue/AccueilVue.js"></script>
     <script src="action/vue/RejoindrePartieVue.js"></script>
@@ -156,12 +192,78 @@
         }
     </script>
 
-    <script type="text/javascript">
-        function retournerCarteVueJoueur()
-        {
-            console.log("Double Tap !");
-        }
     
+
+    <script type="text/javascript">
+        var dos = true;
+
+        var tempsClic = 0;
+        $(".contenant-cartes").on("click", function() {
+            if (tempsClic == 0) 
+            {
+                // premier clic
+                tempsClic = new Date().getTime();
+            } 
+            else 
+            {
+                // compare au 1er clic et regarde si ça correspond au temps d'un double clic
+                if (((new Date().getTime()) - tempsClic) < 800) 
+                {
+                    if(dos) 
+                    {
+                        retournerCarteVueJoueurVersDescription()
+                        tempsClic = 0;
+                        dos = false;
+                        console.log(dos);
+                    }
+                    else
+                    {
+                        retournerCarteVueJoueurVersDos()
+                        tempsClic = 0;
+                        dos = true;
+                        console.log(dos);
+                    }                
+                    
+                } 
+                else 
+                {                    
+                    // Pas un double Clic donc remet comme 1er clic
+                    tempsClic = new Date().getTime();
+                }
+            }
+        });
+
+        CSSPlugin.defaultTransformPerspective = 1000;
+
+        //Set du dos de la carte
+        TweenMax.set($("div.carte-vue-joueur"), {rotationY:-180});
+
+        $.each($("div.contenant-cartes"), function(i,element)
+        {
+            var descriptionCarte = $(this).children("div.description-carte-vue-joueur"),
+                dosCarte = $(this).children("div.carte-vue-joueur"),
+                tl = new TimelineMax({paused:true});
+            
+            tl
+        .to(descriptionCarte, 1, {rotationY:180, ease:Linear.easeNone})
+                .to(dosCarte, 1, {rotationY:0, ease:Linear.easeNone},0);
+            
+            element.animation = tl;
+        });
+
+        
+        function retournerCarteVueJoueurVersDescription()
+        {
+            console.log("Double Tap !");              
+            $(".contenant-cartes")[0].animation.play(0);
+        };
+
+        function retournerCarteVueJoueurVersDos()
+        {
+            $(".contenant-cartes")[0].animation.reverse();
+        };
+
+                  
     
     </script>
 </body>

@@ -3,7 +3,7 @@ let ServiceCarteJSON = function(){
 
     const serveur = require('http').createServer(async (requete, reponse) => {
         reponse.writeHead(200, { 'Content-Type': 'application/json' });
-        
+        console.log('log');
         requete.on('error', (erreur) => {
             console.error(erreur);
             reponse.statusCode = 400;
@@ -14,7 +14,7 @@ let ServiceCarteJSON = function(){
             console.error(erreur);
         });
     
-        let carteDAO = new CarteDAO();
+        /* let carteDAO = new CarteDAO();
     
         if (requete.method === 'GET'){
             if(requete.url === '/cartes'){
@@ -28,11 +28,10 @@ let ServiceCarteJSON = function(){
             }
         } else {
             reponse.statusCode = 404;
-        }
+        } */
         
         reponse.end();
     });
-
     return serveur;
 }
 module.exports = ServiceCarteJSON;

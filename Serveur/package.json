@@ -9,6 +9,7 @@
   "author": "Michael Turcotte",
   "license": "ISC",
   "devDependencies": {
-    "mariadb": "^2.0.1-beta"
+    "mariadb": "^2.0.1-beta",
+    "socket.io": "^2.1.1"
   }
 }

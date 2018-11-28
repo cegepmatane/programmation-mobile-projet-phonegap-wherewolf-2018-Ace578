@@ -23,10 +23,11 @@ var CreerPartieVue = (function () {
             var couleurVillage = document.getElementById("couleur-village").value;
             var datePartie = document.getElementById("date-partie").value;
             var codePartie = document.getElementById("code-creation-partie").value;
-            if (tempsDebat == "" || datePartie == "" || codePartie == "") {
+            var nomVillage = document.getElementById("nom-village").value;
+            if (tempsDebat == "" || datePartie == "" || codePartie == "" || nomVillage == "") {
                 window.alert("Merci de renseigner tous les champs");
             } else {
-                actionCreerPartie(tempsDebat, nombreLoups, nombreJoueurs, couleurVillage, datePartie, codePartie);
+                actionCreerPartie(tempsDebat, nombreLoups, nombreJoueurs, couleurVillage, datePartie, codePartie, nomVillage);
             }
         }
 

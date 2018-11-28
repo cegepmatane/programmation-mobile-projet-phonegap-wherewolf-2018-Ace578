@@ -18,6 +18,7 @@
             <a href="#creer-partie">Créer une partie</a></br>
             <a href="#rejoindre-partie">Rejoindre une partie</a></br>
             <a href="#afficher-regles">Afficher les règles</a>
+            <a href="#afficher-vue-joueur-test">Afficher vue joueur test</a>
 
         </div>
     </script>
@@ -103,12 +104,14 @@
             <p id="nom-village-vue-joueur"></p>
             <p id="date-village-vue-joueur"></p>
     
-            <img src="image/CarteJeu/Loup.PNG">
+            <img src="image/CarteJeu/Loup.PNG" id="carte-vue-joueur" ondblclick="retournerCarteVueJoueur()">
     
             <a href="#afficher-liste-joueurs-vue-joueur">Joueurs</a></br>
             <a href="#afficher-regles-vue-joueur">Regles</a>               
             </div>
     </script>
+
+    
 
     <!-- <script type="text/javascript" charset="utf-8" src="lib/cordova.js"></script> -->
     <script type="text/javascript" charset="utf-8" src="lib/jquery.js"></script>
@@ -116,6 +119,7 @@
     <script src="action/vue/AccueilVue.js"></script>
     <script src="action/vue/RejoindrePartieVue.js"></script>
     <script src="action/vue/CreerPartieVue.js"></script>
+    <script src="action/vue/VueJoueur.js"></script>
     <script src="action/application.js"></script>
     <script type="text/javascript">
         function changerChoixFormulaire() {
@@ -150,6 +154,15 @@
                 document.getElementById('code-creation-partie').value = "";
             }
         }
+    </script>
+
+    <script type="text/javascript">
+        function retournerCarteVueJoueur()
+        {
+            console.log("Double Tap !");
+        }
+    
+    
     </script>
 </body>
 </html>

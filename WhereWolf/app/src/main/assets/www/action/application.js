@@ -33,15 +33,21 @@
             reglesVue.afficher();
 
         }
+        else if (hash.match(/^#afficher-vue-joueur-test/)) {
+
+            var vueJoueur = new VueJoueur();
+            vueJoueur.afficher();
+
+        }
     }
 
     var actionRejoindrePartie = function (pseudonyme, code) {
-        //Connexion à la partie
+        //Connexion ï¿½ la partie
     }
 
     var actionCreerPartie = function (tempsDebat, nombreLoups, nombreJoueurs, couleurVillage, datePartie, codePartie, nomVillage) {
-        //Création de la partie
-        //ATTENTION ! Soit nombreLoups soit nombreJoueurs est nul, en fonction du choix du créateur de partie
+        //Crï¿½ation de la partie
+        //ATTENTION ! Soit nombreLoups soit nombreJoueurs est nul, en fonction du choix du crï¿½ateur de partie
     }
 
     initialiser();

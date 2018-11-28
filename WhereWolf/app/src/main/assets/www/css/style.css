@@ -1,0 +1,26 @@
+img {
+    width: 80%;
+}
+
+.contenant-cartes {
+    width: 250px;
+    height: 400px;
+    float: left;
+    margin: 20px;
+    position: relative;
+}
+
+.carte-vue-joueur, .description-carte-vue-joueur {
+    position: absolute;
+    background: url(../image/CarteJeu/VersoCarte.PNG);
+    width: 250px;
+    height: 400px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
+}
+
+.carte-vue-joueur {
+    background: url(../image/CarteJeu/Sorciere.PNG);
+}

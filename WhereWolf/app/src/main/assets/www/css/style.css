@@ -32,6 +32,7 @@ label{
 h1 {
   -webkit-animation: animation 3000ms linear both;
   animation: animation 3000ms linear both;
+  text-align : center;
 }
 
 /* Generated with Bounce.js. Edit at https://goo.gl/bkOekC */

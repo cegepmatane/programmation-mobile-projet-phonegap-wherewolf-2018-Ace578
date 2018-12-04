@@ -46,8 +46,7 @@
     }
 
     var actionCreerPartie = function (tempsDebat, nombreLoups, nombreJoueurs, couleurVillage, datePartie, codePartie, nomVillage) {
-        //Cr�ation de la partie
-        //ATTENTION ! Soit nombreLoups soit nombreJoueurs est nul, en fonction du choix du cr�ateur de partie
+        
     }
 
     initialiser();

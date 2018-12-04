@@ -57,15 +57,15 @@
     <script type="plain/text" id="page-creer-partie">
         <div class="page-creer-partie">
             <h1>Bienvenue à tous !</h1>
-            <img src="image/werewolf.png" alt="AOOOOOOOOOOOOOOOOOUUUUUUUUUUUUUH"></br>
+            <img src="image/werewolf.png" alt="AOOOOOOOOOOOOOOOOOUUUUUUUUUUUUUH" id="img-accueil" /></br>
             <form id="formulaire-creer-partie">
                 <p>
                     Temps de débat en journée :
                     <input name="temps-debat" type="time" id="temps-debat" />
                 </p>
                 <p>
-                    Choisir nombre de loup-garous ?
-                    <input type="checkbox" name="choisir-loup" id="choisir-loup" onclick="changerChoixFormulaire();" />
+                    <input type="checkbox" name="choisir-loup" id="choisir-loup" onclick="changerChoixFormulaire();">
+                    <label for="choisir-loup">Choisir nombre de loup-garous</label>
                 </p>
                 <p>
                     <text id="legende-choix">Nombre de joueurs :</text>

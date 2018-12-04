@@ -2,6 +2,11 @@ label{
     font-family: "Arial", Times, serif;
 }
 
+p {
+    margin-right:10px;
+    margin-left:10px;
+}
+
 
 #img-accueil {
     width:60%;

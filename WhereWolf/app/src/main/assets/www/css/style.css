@@ -1,10 +1,11 @@
-img {
-    width: 80%;
-}
 
+
+#img-accueil {
+    width:80%;
+}
 .contenant-cartes {
-    width: 250px;
-    height: 400px;
+    width: 500px;
+    height: 800px;
     float: left;
     margin: 20px;
     position: relative;

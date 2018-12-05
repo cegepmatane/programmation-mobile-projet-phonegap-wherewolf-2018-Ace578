@@ -1,22 +1,27 @@
-var Connexion = (function () {
+var Connexion = function () {
     var connexion;
-    var instance;
 
-    this.getInstance = function () {
-        if (this.instance == null) {
-            this.instance = new Connexion();
-        }
-        return this.instance;
-    }
-
-    function init() {
+    function initialiser() {
         console.log("Connexion effectuée");
         connexion = io.connect('http://158.69.192.249:8080');
     }
 
-    function creerPartie(salutation) {
+    this.getConnexion = function () {
+        return connexion;
+    }
+
+    function creerPartie() {
         //Gestion création partie
     }
 
-    init();
-})();
+    initialiser();
+};
+
+Connexion.getInstance = function () {
+    var instance;
+    console.log("oui");
+    if (instance == null) {
+        instance = new Connexion();
+    }
+    return instance;
+}

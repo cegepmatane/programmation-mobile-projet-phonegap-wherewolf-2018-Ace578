@@ -1,6 +1,6 @@
 (function () {
 
-    var instance = this;
+    var connexion;
 
     var initialiser = function () {
         window.addEventListener("hashchange", naviguer);
@@ -38,15 +38,17 @@
             var vueJoueur = new VueJoueur();
             vueJoueur.afficher();
 
+
         }
     }
 
     var actionRejoindrePartie = function (pseudonyme, code) {
-        //Connexion � la partie
+        connexion = Connexion.getInstance();
     }
 
     var actionCreerPartie = function (tempsDebat, nombreLoups, nombreJoueurs, couleurVillage, datePartie, codePartie, nomVillage) {
-        
+        connexion = Connexion.getInstance();
+        connexion.creerPartie();
     }
 
     initialiser();

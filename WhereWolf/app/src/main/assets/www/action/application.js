@@ -44,11 +44,12 @@
 
     var actionRejoindrePartie = function (pseudonyme, code) {
         connexion = Connexion.getInstance();
+        connexion.rejoindrePartie(pseudonyme, code);
     }
 
-    var actionCreerPartie = function (tempsDebat, nombreLoups, nombreJoueurs, couleurVillage, datePartie, codePartie, nomVillage) {
+    var actionCreerPartie = function (partie) {
         connexion = Connexion.getInstance();
-        connexion.creerPartie();
+        connexion.creerPartie(partie);
     }
 
     initialiser();

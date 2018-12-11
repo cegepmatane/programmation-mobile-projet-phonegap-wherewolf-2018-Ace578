@@ -2,7 +2,7 @@ var Connexion = function () {
     var connexion;
 
     function initialiser() {
-        console.log("Connexion effectuée");
+        console.log("Connexion effectuee");
         connexion = io.connect('http://158.69.192.249:8080');
     }
 
@@ -10,8 +10,14 @@ var Connexion = function () {
         return connexion;
     }
 
-    function creerPartie() {
-        //Gestion création partie
+    this.creerPartie = function (partie) {
+        console.log("Connexion.creerPartie");
+        connexion.emit('Creation Partie', JSON.stringify(partie));
+    }
+
+    this.rejoindrePartie = function (pseudonyme, code) {
+        console.log("Connexion.rejoindrePartie");
+        connexion.emit('Rejoindre Partie', "" + pseudonyme + code);
     }
 
     initialiser();
@@ -19,7 +25,6 @@ var Connexion = function () {
 
 Connexion.getInstance = function () {
     var instance;
-    console.log("oui");
     if (instance == null) {
         instance = new Connexion();
     }

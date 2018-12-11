@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html>
 <head>
     <title>Wherewolf</title>
@@ -14,12 +14,12 @@
         <div class="page-accueil">
             <h1>Wherewolf</h1>
             <div class="accueil center-align">
-            <img src="image/werewolf.png" alt="AOOOOOOOOOOOOOOOOOUUUUUUUUUUUUUH"  class="animated bounce" id="img-accueil" /></br>
+                <img src="image/werewolf.png" alt="AOOOOOOOOOOOOOOOOOUUUUUUUUUUUUUH" class="animated bounce" id="img-accueil" /></br>
 
-            <a class="waves-effect waves-light btn-small red darken-2" button href="#creer-partie">Créer une partie</a></br>
-            <a class="waves-effect waves-light btn-small red darken-2" button href="#rejoindre-partie">Rejoindre une partie</a></br>
-            <a class="waves-effect waves-light btn-small red darken-2" button href="#afficher-regles">Afficher les règles</a></br>
-            <a class="waves-effect waves-light btn-small red darken-2" button href="#afficher-vue-joueur-test">Afficher vue joueur test</a>
+                <a class="waves-effect waves-light btn-small red darken-2" button href="#creer-partie">Créer une partie</a></br>
+                <a class="waves-effect waves-light btn-small red darken-2" button href="#rejoindre-partie">Rejoindre une partie</a></br>
+                <a class="waves-effect waves-light btn-small red darken-2" button href="#afficher-regles">Afficher les règles</a></br>
+                <a class="waves-effect waves-light btn-small red darken-2" button href="#afficher-vue-joueur-test">Afficher vue joueur test</a>
             </div>
         </div>
     </script>
@@ -43,8 +43,8 @@
     <script type="plain/text" id="page-rejoindre-partie">
         <div class="page-rejoindre-partie">
             <h1>Wherewolf</h1>
-            <div  class="center-align">
-            <img src="image/werewolf.png" alt="AOOOOOOOOOOOOOOOOOUUUUUUUUUUUUUH" id="img-accueil" /></br>
+            <div class="center-align">
+                <img src="image/werewolf.png" alt="AOOOOOOOOOOOOOOOOOUUUUUUUUUUUUUH" id="img-accueil" /></br>
             </div>
             <form id="formulaire-rejoindre-partie">
                 <div>Code de la partie :</div>
@@ -59,8 +59,8 @@
     <script type="plain/text" id="page-creer-partie">
         <div class="page-creer-partie">
             <h1>Wherewolf</h1>
-            <div  class="center-align">
-            <img src="image/werewolf.png" alt="AOOOOOOOOOOOOOOOOOUUUUUUUUUUUUUH" id="img-accueil" /></br>
+            <div class="center-align">
+                <img src="image/werewolf.png" alt="AOOOOOOOOOOOOOOOOOUUUUUUUUUUUUUH" id="img-accueil" /></br>
             </div>
             <form id="formulaire-creer-partie">
                 <p>
@@ -132,6 +132,9 @@
     <script type="text/javascript" charset="utf-8" src="lib/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script type="text/javascript" src="lib/jquery.mobile-events.min.js"></script>
+    <script type="text/javascript" src="lib/socket.io.js"></script>
+    <script src="action/donnee/Connexion.js"></script>
+    <script src="action/modele/Partie.js"></script>
     <script src="action/vue/ReglesVue.js"></script>
     <script src="action/vue/AccueilVue.js"></script>
     <script src="action/vue/RejoindrePartieVue.js"></script>
@@ -172,6 +175,6 @@
             }
         }
     </script>
-    
+
 </body>
 </html>

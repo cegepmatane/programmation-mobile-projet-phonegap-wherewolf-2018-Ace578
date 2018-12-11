@@ -27,7 +27,8 @@ var CreerPartieVue = (function () {
             if (tempsDebat == "" || datePartie == "" || codePartie == "" || nomVillage == "") {
                 window.alert("Merci de renseigner tous les champs");
             } else {
-                actionCreerPartie(tempsDebat, nombreLoups, nombreJoueurs, couleurVillage, datePartie, codePartie, nomVillage);
+                var partie = new Partie(tempsDebat, nombreLoups, nombreJoueurs, couleurVillage, codePartie, nomVillage);
+                actionCreerPartie(partie);
             }
         }
 

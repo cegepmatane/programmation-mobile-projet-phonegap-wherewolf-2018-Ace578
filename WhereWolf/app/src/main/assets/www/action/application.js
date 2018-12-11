@@ -1,6 +1,11 @@
 (function () {
-
+    var carteDAO;
     var connexion;
+
+    // TODO : METTRE AUTRE PART
+    carteDAO = new CarteDAO();
+    carteDAO.lister(actionListerCartes);
+    //
 
     var initialiser = function () {
         window.addEventListener("hashchange", naviguer);
@@ -50,6 +55,14 @@
     var actionCreerPartie = function (partie) {
         connexion = Connexion.getInstance();
         connexion.creerPartie(partie);
+    }
+
+    function actionListerCartes(resultat){
+        console.log("actionListerCartes " + resultat);
+    }
+
+    function actionRecupererCarte(resultat){
+        console.log("actionRecupererCarte " + resultat);
     }
 
     initialiser();

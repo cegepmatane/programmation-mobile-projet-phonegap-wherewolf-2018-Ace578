@@ -1,30 +1,32 @@
 let CarteDAO = function () {
-    const LISTER_CARTES = 'http://158.69.192.249:8080/cartes';
-    const RECUPERER_CARTE = 'http://158.69.192.249:8080/carte/:id:';
+    let listeCarte;
 
-    this.recuperer = function(id){
-        var urlCarte = RECUPERER_CARTE.replace(':id:', id);
-        carte = effectuerRequete(urlCarte);
+    this.getListeCarte = function(){
+        return listeCarte;
     }
 
-    this.lister = function () {
-        listeCarte = effectuerRequete(LISTER_CARTES);
-        // console.log(listeCarte);
+    this.recuperer = function(id, actionRecupererCarte){
+        var urlCarte = URL.RECUPERER_CARTE.replace(':id:', id);
+        carte = effectuerRequete(urlCarte, actionRecupererCarte);
     }
 
-    function effectuerRequete(url) {
-        var resultat;
+    this.lister = function (actionListerCartes) {
+        if(!listeCarte)
+            listeCarte = [];
 
+        resultat = effectuerRequete(URL.LISTER_CARTES, actionListerCartes);
+        listeCarte = resultat;
+    }
+
+    function effectuerRequete(url, callback) {
         var requete = new XMLHttpRequest()
         requete.open('GET', url, true)
         requete.setRequestHeader('Content-Type', 'application/json')
         requete.send();
 
-        requete.onreadystatechange = async function () {
-            if (requete.readyState === 4){
-                // return requete.responseText;
-                console.log(requete.responseText);
-            }
+        requete.onreadystatechange = function () {
+            if (requete.readyState === 4)
+                callback(requete.responseText);
         }
     }
 }

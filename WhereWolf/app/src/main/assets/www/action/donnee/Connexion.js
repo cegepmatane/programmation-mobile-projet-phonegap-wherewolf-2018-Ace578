@@ -11,12 +11,12 @@ var Connexion = function () {
 
     this.creerPartie = function (partie) {
         console.log("Connexion.creerPartie");
-        connexion.emit('Creation Partie', JSON.stringify(partie));
+        connexion.emit('creation-partie', JSON.stringify(partie));
     }
 
     this.rejoindrePartie = function (pseudonyme) {
         console.log("Connexion.rejoindrePartie");
-        connexion.emit('Rejoindre Partie', pseudonyme);
+        connexion.emit('rejoindre-partie', pseudonyme);
     }
 
     initialiser();

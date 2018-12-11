@@ -42,9 +42,9 @@
         }
     }
 
-    var actionRejoindrePartie = function (pseudonyme, code) {
+    var actionRejoindrePartie = function (pseudonyme) {
         connexion = Connexion.getInstance();
-        connexion.rejoindrePartie(pseudonyme, code);
+        connexion.rejoindrePartie(pseudonyme);
     }
 
     var actionCreerPartie = function (partie) {

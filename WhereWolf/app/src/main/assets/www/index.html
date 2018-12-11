@@ -88,14 +88,6 @@
                     Date de l'histoire :
                     <input type="date" name="date-partie" id="date-partie" />
                 </p>
-                <p>
-                    <input type="checkbox" name="generer-code-partie" id="generer-code-partie" onclick="genererCodeAleatoirement();" />
-                    <label for="generer-code-partie">Générer le code de la partie</label>
-                </p>
-                <p>
-                    Code de la partie :
-                    <input type="text" id="code-creation-partie" />
-                </p>
                 <input type="submit" id="creer-partie" name="creer-partie" value="Créer partie" />
             </form>
         </div>
@@ -159,22 +151,5 @@
             }
         }
     </script>
-    <script type="text/javascript">
-        function genererCodeAleatoirement() {
-            if (document.getElementById('generer-code-partie').checked) {
-                var code = "";
-                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-                for (var incrementation = 0; incrementation < 5; incrementation++) {
-                    code += possible.charAt(Math.floor(Math.random() * possible.length));
-                }
-
-                document.getElementById('code-creation-partie').value = code;
-            } else {
-                document.getElementById('code-creation-partie').value = "";
-            }
-        }
-    </script>
-
 </body>
 </html>

@@ -2,7 +2,6 @@ var Connexion = function () {
     var connexion;
 
     function initialiser() {
-        console.log("Connexion effectuee");
         connexion = io.connect('http://158.69.192.249:8080');
     }
 
@@ -15,9 +14,9 @@ var Connexion = function () {
         connexion.emit('Creation Partie', JSON.stringify(partie));
     }
 
-    this.rejoindrePartie = function (pseudonyme, code) {
+    this.rejoindrePartie = function (pseudonyme) {
         console.log("Connexion.rejoindrePartie");
-        connexion.emit('Rejoindre Partie', "" + pseudonyme + code);
+        connexion.emit('Rejoindre Partie', pseudonyme);
     }
 
     initialiser();

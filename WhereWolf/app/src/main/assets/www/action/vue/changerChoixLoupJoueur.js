@@ -1,6 +1,4 @@
 (function () {
-    var pageCreerPartie = document.getElementById("page-creer-partie").innerHTML;
-    document.getElementsByTagName("body")[0].innerHTML = pageCreerPartie;
     var changerFormulaire = document.getElementById('choisir-loup');
     changerFormulaire.onclick = function () {
         if (changerFormulaire.checked) {

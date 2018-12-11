@@ -1,6 +1,7 @@
 (function () {
     var carteDAO;
     var connexion;
+    var res;
 
     // TODO : METTRE AUTRE PART
     carteDAO = new CarteDAO();
@@ -59,6 +60,8 @@
 
     function actionListerCartes(resultat){
         console.log("actionListerCartes " + resultat);
+        this.res = JSON.parse(resultat);
+        alert(res);
     }
 
     function actionRecupererCarte(resultat){

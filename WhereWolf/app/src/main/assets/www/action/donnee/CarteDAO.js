@@ -8,6 +8,7 @@ let CarteDAO = function () {
     this.recuperer = function(id, actionRecupererCarte){
         var urlCarte = URL.RECUPERER_CARTE.replace(':id:', id);
         carte = effectuerRequete(urlCarte, actionRecupererCarte);
+        
     }
 
     this.lister = function (actionListerCartes) {

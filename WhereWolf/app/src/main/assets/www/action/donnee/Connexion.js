@@ -2,7 +2,7 @@ var Connexion = function () {
     var connexion;
 
     function initialiser() {
-        connexion = io.connect('http://158.69.192.249:8080');
+        connexion = io.connect('http://158.69.192.249:3000');
     }
 
     this.getConnexion = function () {

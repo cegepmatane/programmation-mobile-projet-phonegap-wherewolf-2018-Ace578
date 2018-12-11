@@ -47,9 +47,9 @@
         }
     }
 
-    var actionRejoindrePartie = function (pseudonyme) {
+    var actionRejoindrePartie = function (pseudonyme, code) {
         connexion = Connexion.getInstance();
-        connexion.rejoindrePartie(pseudonyme);
+        connexion.rejoindrePartie(pseudonyme, code);
     }
 
     var actionCreerPartie = function (partie) {

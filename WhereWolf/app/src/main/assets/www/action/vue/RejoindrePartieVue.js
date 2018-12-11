@@ -13,10 +13,11 @@ var RejoindrePartieVue = (function () {
         var rejoindrePartie = function (evenement) {
             evenement.preventDefault();
             var pseudonyme = document.getElementById("nom-joueur").value;
-            if (pseudonyme == "") {
+            var codePartie = document.getElementById("code-partie").value;
+            if (pseudonyme == "" || codePartie == "") {
                 window.alert("Merci de renseigner tous les champs");
             } else {
-                actionRejoindrePartie(pseudonyme);
+                actionRejoindrePartie(pseudonyme, codePartie);
             }
         }
 

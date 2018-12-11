@@ -16,7 +16,7 @@ var Connexion = function () {
 
     this.rejoindrePartie = function (pseudonyme, code) {
         console.log("Connexion.rejoindrePartie");
-        connexion.emit('rejoindre-partie', JSON.stringify(pseudonyme, code));
+        connexion.emit('rejoindre-partie', JSON.stringify({ pseudonyme, code }));
     }
 
     initialiser();

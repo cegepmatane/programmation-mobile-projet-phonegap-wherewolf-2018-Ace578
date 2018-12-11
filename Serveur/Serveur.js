@@ -1,9 +1,14 @@
 const ServiceCarteJSON = require('./modele/ServiceCarteJSON');
 const ServiceSocketIO = require('./modele/ServiceSocketIO');
 
-let serveur = new ServiceCarteJSON();
-let socketio = new ServiceSocketIO(serveur);
+const PORT_SERVICE = 8080;
+const PORT_SOCKETIO = 3000;
 
-serveur.listen(8080);
+let serviceJSON = new ServiceCarteJSON();
+let socketio = new ServiceSocketIO();
 
-console.log("Le serveur ecoute sur le port %d", serveur.address().port);
+serviceJSON.listen(PORT_SERVICE);
+socketio.listen(PORT_SOCKETIO);
+
+console.log("Le service ecoute sur le port %d", PORT_SERVICE);
+console.log("Socket.io ecoute sur le port %d", PORT_SOCKETIO);

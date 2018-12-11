@@ -2,7 +2,7 @@ var Connexion = function () {
     var connexion;
 
     function initialiser() {
-        connexion = io.connect('http://158.69.192.249:8080');
+        connexion = io.connect('http://158.69.192.249:3000');
     }
 
     this.getConnexion = function () {
@@ -11,12 +11,12 @@ var Connexion = function () {
 
     this.creerPartie = function (partie) {
         console.log("Connexion.creerPartie");
-        connexion.emit('Creation Partie', JSON.stringify(partie));
+        connexion.emit('creation-partie', JSON.stringify(partie));
     }
 
-    this.rejoindrePartie = function (pseudonyme) {
+    this.rejoindrePartie = function (pseudonyme, code) {
         console.log("Connexion.rejoindrePartie");
-        connexion.emit('Rejoindre Partie', pseudonyme);
+        connexion.emit('rejoindre-partie', JSON.stringify({ pseudonyme, code }));
     }
 
     initialiser();

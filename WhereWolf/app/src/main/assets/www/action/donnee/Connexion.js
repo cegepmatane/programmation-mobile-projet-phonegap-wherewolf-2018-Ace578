@@ -2,6 +2,7 @@ var Connexion = function () {
     var connexion;
 
     function initialiser() {
+        console.log("Connexion");
         connexion = io.connect('http://158.69.192.249:3000');
     }
 
@@ -22,10 +23,20 @@ var Connexion = function () {
     initialiser();
 };
 
-Connexion.getInstance = function () {
+var SingletonConnexion = (function () {
     var instance;
-    if (instance == null) {
-        instance = new Connexion();
+ 
+    function createInstance() {
+        var connexion = new Connexion();
+        return connexion;
     }
-    return instance;
-}
+ 
+    return {
+        getInstance: function () {
+            if (!instance) {
+                instance = createInstance();
+            }
+            return instance;
+        }
+    };
+})();

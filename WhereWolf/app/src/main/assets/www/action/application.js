@@ -49,12 +49,12 @@
     }
 
     var actionRejoindrePartie = function (pseudonyme, code) {
-        connexion = Connexion.getInstance();
+        connexion = SingletonConnexion.getInstance();
         connexion.rejoindrePartie(pseudonyme, code);
     }
 
     var actionCreerPartie = function (partie) {
-        connexion = Connexion.getInstance();
+        connexion = SingletonConnexion.getInstance();
         connexion.creerPartie(partie);
     }
 

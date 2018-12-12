@@ -3,8 +3,10 @@ let ServiceSocketIO = function () {
     const socketio = require('socket.io')();
     const Partie = require('./Partie');
     const PartieDAO = require('../accesseur/PartieDAO');
+    const JoueurDAO = require('../accesseur/JoueurDAO');
 
     let partieDAO = new PartieDAO();
+    let joueurDAO = new JoueurDAO();
 
     socketio.on('connection', function (client) {
         console.log('Nouvelle connection ' + client.id);
@@ -64,6 +66,9 @@ let ServiceSocketIO = function () {
     function rejoindrePartie(informationRejoindrePartie) {
         const { pseudonyme, code } = JSON.parse(informationRejoindrePartie);
         console.log(pseudonyme + " " + code);
+        joueurDAO.ajouter(pseudonyme, code);
+        // AJOUTER LE JOUEUR A UNE LISTE DANS LA PARTIE
+        // GERER LA SUPPRESSION EN CASCADE
     }
 
     return socketio;

@@ -26,6 +26,7 @@
 
             var creerPartieVue = new CreerPartieVue(actionCreerPartie);
             creerPartieVue.afficher();
+            new ChangerChoixLoupJoueur();
 
         } else if (hash.match(/^#rejoindre-partie/)) {
 

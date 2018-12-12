@@ -15,22 +15,31 @@ let ServiceSocketIO = function () {
     });
 
     function creerPartie(informationCreationPartie) {
-        let {tempsDebat, nombreJoueurs, nombreLoups, nomVillage, couleurVillage, datePartie} = JSON.parse(informationCreationPartie);
+        let { tempsDebat, nombreJoueurs, nombreLoups, nomVillage, couleurVillage, datePartie } = JSON.parse(informationCreationPartie);
         codePartie = genererCodePartie();
-        
+
         let partie = new Partie(tempsDebat, nombreJoueurs, nombreLoups, nomVillage, couleurVillage, datePartie, codePartie);
         partieDAO.ajouter(partie);
 
-        this.emit('code-partie', JSON.stringify({codePartie}));
+        this.emit('code-partie', JSON.stringify(codePartie));
     }
 
     function genererCodePartie() {
-        var code = "";
-        var characterPossible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        let code = "";
+        let characterPossible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        let codeUnique = true;
+        listePartie = partieDAO.getListePartie();
 
-        for (var incrementation = 0; incrementation < 5; incrementation++) {
-            code += characterPossible.charAt(Math.floor(Math.random() * characterPossible.length));
-        }
+        do {
+            for (let incrementation = 0; incrementation < 5; incrementation++) {
+                code += characterPossible.charAt(Math.floor(Math.random() * characterPossible.length));
+            }
+
+            listePartie.forEach(partie => {
+                if (code === listePartie.codePartie)
+                    codeUnique = false;
+            });
+        } while (!codeUnique);
 
         return code;
     }

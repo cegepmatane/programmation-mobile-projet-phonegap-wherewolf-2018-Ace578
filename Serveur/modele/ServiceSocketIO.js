@@ -11,6 +11,7 @@ let ServiceSocketIO = function () {
         client.emit('bonjour', "salutation");
 
         client.on('creation-partie', creerPartie);
+        client.on('annuler-creation-partie', annulerPartie);
         client.on('rejoindre-partie', rejoindrePartie);
     });
 
@@ -24,11 +25,27 @@ let ServiceSocketIO = function () {
         this.emit('code-partie', JSON.stringify(codePartie));
     }
 
+    function annulerPartie(informationAnnulerPartie){
+        let codePartieASupprimer = JSON.parse(informationAnnulerPartie);
+        let idPartieASupprimer;
+        let listePartie = partieDAO.getListePartie();
+
+        listePartie.forEach(partie =>{
+            if(codePartieASupprimer === partie){
+                idPartieASupprimer = partie.id;
+            }
+        })
+
+        partieDAO.supprimer(idPartieASupprimer);
+
+        this.emit('partie-supprime', JSON.stringify(true));
+    }
+
     function genererCodePartie() {
         let code = "";
         let characterPossible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         let codeUnique = true;
-        listePartie = partieDAO.getListePartie();
+        let listePartie = partieDAO.getListePartie();
 
         do {
             for (let incrementation = 0; incrementation < 5; incrementation++) {

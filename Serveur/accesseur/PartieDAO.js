@@ -33,5 +33,23 @@ let PartieDAO = function () {
         partie.id = id;
         listePartie.push(partie);
     }
+
+    this.supprimer = function(id){
+        try {
+            baseDeDonnees = await pool.getConnection();
+            resultat = await baseDeDonnees.query(Requetes.SQL_SUPPRIMER, [id]);
+        } catch (erreur) {
+            throw erreur;
+        } finally {
+            if (baseDeDonnees)
+                baseDeDonnees.end();
+        }
+
+        if(resultat){
+            listePartie.forEach(partie => {
+                listePartie.splice(listePartie.indexOf(partie), 1);
+            });
+        }
+    }
 }
 module.exports = PartieDAO;

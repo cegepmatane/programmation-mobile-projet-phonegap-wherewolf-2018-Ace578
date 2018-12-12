@@ -26,10 +26,9 @@ var CreerPartieVue = (function () {
             if (tempsDebat == "" || datePartie == "" || nomVillage == "") {
                 window.alert("Merci de renseigner tous les champs");
             } else {
-                var partie = new Partie(tempsDebat, nombreLoups, nombreJoueurs, couleurVillage, nomVillage);
+                var partie = new Partie(tempsDebat, nombreLoups, nombreJoueurs, couleurVillage, datePartie, nomVillage);
                 actionCreerPartie(partie);
             }
         }
-
     };
 })();

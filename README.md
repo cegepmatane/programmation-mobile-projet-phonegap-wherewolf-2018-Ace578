@@ -7,3 +7,5 @@ TURCOTTE Michaël /
 TOUGGANI Youssef /
 
 Dossier fonctionnel : https://docs.google.com/document/d/1pkcRityHIgNRIWJ4StG7uhit-uPzsvURiOejeXGCjIM/edit
+
+Lien vidéo présentation : https://youtu.be/USUzULYJWPk

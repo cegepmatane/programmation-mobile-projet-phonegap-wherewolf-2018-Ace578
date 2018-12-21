@@ -41,8 +41,12 @@
             //console.log("envoi vue regles :");
             //console.log(listeCartes);
             //console.log(typeof listeCartes);
-            var reglesVue = new ReglesVue(listeCartes);            
-            reglesVue.afficher();
+            setTimeout(function(){
+                var reglesVue = new ReglesVue(listeCartes);
+                reglesVue.afficher();
+            }, 1000);
+                        
+            
 
         }
         else if (hash.match(/^#afficher-vue-joueur-test/)) {

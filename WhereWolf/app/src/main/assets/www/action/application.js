@@ -1,14 +1,15 @@
 (function () {
-    var carteDAO;
     var connexion;
-    var res;
 
     // TODO : METTRE AUTRE PART
-    carteDAO = new CarteDAO();
-    carteDAO.lister(actionListerCartes);
-    //
+    
+    
+    
+    var listeCartes;
 
     var initialiser = function () {
+        carteDAO = new CarteDAO();
+        carteDAO.lister(actionListerCartes);
         window.addEventListener("hashchange", naviguer);
         naviguer();
     }
@@ -36,7 +37,11 @@
         }
         else if (hash.match(/^#afficher-regles/)) {
 
-            var reglesVue = new ReglesVue();
+            carteDAO.lister(actionListerCartes);
+            //console.log("envoi vue regles :");
+            //console.log(listeCartes);
+            //console.log(typeof listeCartes);
+            var reglesVue = new ReglesVue(listeCartes);            
             reglesVue.afficher();
 
         }
@@ -46,6 +51,19 @@
             vueJoueur.afficher();
 
 
+        }
+        else if(hash.match(/^#afficher-vue-carte-regle\/([0-9]+)/))
+        {
+            var navigation = hash.match(/^#afficher-vue-carte-regle\/([0-9]+)/);
+            idCarte = navigation[1];
+            //console.log(navigation[1]);
+            var vueCarteRegle = new VueCarteRegle(actionModifierCarte,listeCartes[idCarte]);
+            vueCarteRegle.afficher();
+        }
+        else if(hash.match(/^#ajouter-carte/))
+        {
+            var vueAjouterCarte = new VueAjouterCarte(actionAjouterCarte);
+            vueAjouterCarte.afficher();
         }
     }
 
@@ -60,13 +78,30 @@
     }
 
     function actionListerCartes(resultat){
-        console.log("actionListerCartes " + resultat);
-        this.res = JSON.parse(resultat);
-        alert(res);
+
+        listeCartes = JSON.parse(resultat);   
+        
     }
 
     function actionRecupererCarte(resultat){
-        console.log("actionRecupererCarte " + resultat);
+        //console.log("actionRecupererCarte " + JSON.parse(resultat));
+    }
+
+    var actionModifierCarte = function (carte)
+    {
+        //console.log(carte);
+        carteDAO.modifierCarte(carte)
+        window.location.hash = "#afficher-regles";
+        
+    }
+
+    var actionAjouterCarte = function (carte)
+    {
+        //console.log(carte);
+        carteDAO.ajouterCarte(carte)
+        carteDAO.lister(actionListerCartes);
+        window.location.hash = "#afficher-regles";
+        
     }
 
     initialiser();

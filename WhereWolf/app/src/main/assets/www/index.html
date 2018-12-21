@@ -37,8 +37,51 @@
                 pour vous avoir
             </p>
             <h2>Les cartes</h2>
-            <div id="cartesRegle"> </div>
+            <div id="contenant-carte"></div>
+            <a href="#ajouter-carte" id="actionAjouterCarte">Ajouter une carte</a>
 
+        </div>
+    </script>
+
+    <script type="plain/text" id="page-carte-regle">
+        <div class="page-carte-regle">
+            <h1 id = "titre-carte">Règles du jeu !</h1>
+            <div id = "contenant-image-carte-regle">
+            </div>
+            <div id="contenant-formulaire-modifier-carte">
+                <form id="formulaire-modifier">
+                    <div id="contenant-description-carte">
+                        <label for="description-carte">Description : </label>
+                        <textarea name="description-carte" id="description-carte"></textarea>
+                    </div>
+                    <div id="contenant-boutons">
+                        <button  type="submit" id="action-modifier-carte" name="modifier">Modifier</button>
+                        <a href="#afficher-regles">Retour</a>
+                    </div>
+                </form>
+            </div>            
+        </div>
+    </script>
+
+    <script type="plain/text" id="page-ajouter-carte">
+        <div class="page-ajouter-carte">
+            <h1 id = "titre-carte">Ajouter une carte !</h1>
+            <div id="contenant-formulaire-ajouter-carte">
+                <form id="formulaire-ajouter-carte">
+                    <div id="contenant-nom-carte">
+                        <label for="nom-carte">Nom : </label>
+                        <input name="nom-carte" type="text" id="nom-carte"/>
+                    </div>
+                    <div id="contenant-description-carte">
+                        <label for="description-carte">Description : </label>
+                        <textarea name="description-carte" id="description-carte"></textarea>
+                    </div>
+                    <div id="contenant-boutons">
+                        <button  type="submit" id="action-ajouter-carte" name="ajouter">Ajouter</button>
+                        <a href="#afficher-regles">Retour</a>
+                    </div>
+                </form>
+            </div>            
         </div>
     </script>
 
@@ -111,6 +154,7 @@
             <div class="contenant-cartes">
                 <div class="carte-vue-joueur"></div>
                 <div class="description-carte-vue-joueur"></div>
+                <div id="texte-description-carte-vue-joueur"></div>
             </div>
 
             <div class="contenant-boutons">
@@ -126,10 +170,12 @@
     <script type="text/javascript" charset="utf-8" src="lib/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
     <script type="text/javascript" src="lib/jquery.mobile-events.min.js"></script>
+    <script type="text/javascript" src="lib/sweetalert.min.js"></script>
     <script type="text/javascript" src="lib/socket.io.js"></script>
+    <script src="lib/mysql.js"></script>
     <script src="action/vue/ChangerChoixLoupJoueur.js"></script>
-    <script src="./action/donnee/CarteURL.js"></script>
-    <script src="./action/donnee/CarteDAO.js"></script>
+    <script src="action/donnee/CarteURL.js"></script>
+    <script src="action/donnee/CarteDAO.js"></script>
     <script src="action/donnee/Connexion.js"></script>
     <script src="action/modele/Partie.js"></script>
     <script src="action/vue/ReglesVue.js"></script>
@@ -137,6 +183,8 @@
     <script src="action/vue/RejoindrePartieVue.js"></script>
     <script src="action/vue/CreerPartieVue.js"></script>
     <script src="action/vue/VueJoueur.js"></script>
+    <script src="action/vue/VueCarteRegle.js"></script>
+    <script src="action/vue/VueAjouterCarte.js"></script>
     <script src="action/application.js"></script>
 </body>
 </html>

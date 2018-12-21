@@ -35,5 +35,35 @@ let CarteDAO = function () {
                 baseDeDonnees.end();
         }
     }
+
+    this.modifierCarte = async function(carte){
+        let baseDeDonnees;
+
+        try{
+            baseDeDonnees = await pool.getConnection();
+            resultat = await baseDeDonnees.query(Requetes.SQL_MODIFIER_CARTE, [carte.description, carte.id]);
+        } catch (erreur) {
+            throw erreur;
+        } finally {
+            if (baseDeDonnees)
+                baseDeDonnees.end();
+        }
+    }
+
+    this.ajouterCarte = async function(carte){
+        let baseDeDonnees;
+
+        try{
+            baseDeDonnees = await pool.getConnection();
+            resultat = await baseDeDonnees.query(Requetes.SQL_AJOUTER_CARTE, [carte.nom, carte.description]);
+        } catch (erreur) {
+            throw erreur;
+        } finally {
+            if (baseDeDonnees)
+                baseDeDonnees.end();
+        }
+    }
+
+
 }
 module.exports = CarteDAO;

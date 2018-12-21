@@ -23,13 +23,31 @@ let ServiceCarteJSON = function(){
             if(requete.url === '/cartes'){
                 let cartes = await carteDAO.lister();
                 reponse.write(cartes);
-            } else if(idCarte = requete.url.match(/\/carte\/([0-9]+)?/)[1]){
+            } else if(idCarte = requete.url.match(/\/carte\/([0-9]+)/)[1]){
                 let carte = await carteDAO.recuperer(idCarte);
                 reponse.write(carte ? carte : '{}');
             } else {
                 reponse.statusCode = 404;
             }
-        } else {
+        } else if (requete.method === 'POST'){
+            if(requete.url === '/modifierCarte'){
+                console.log("if(requete.url === '/modifierCarte')");
+                requete.on('data', async function(event){
+                    carteModifiee = JSON.parse(event.toString());
+                    await carteDAO.modifierCarte(carteModifiee);
+                });
+            }
+            else if(requete.url === '/ajouterCarte')
+            {
+                console.log("if(requete.url === '/ajouterCarte')");
+                requete.on('data', async function(event){
+                    nouvelleCarte = JSON.parse(event.toString());
+                    await carteDAO.ajouterCarte(nouvelleCarte);
+                });
+            }
+
+        }           
+        else {
             reponse.statusCode = 404;
         }
         
